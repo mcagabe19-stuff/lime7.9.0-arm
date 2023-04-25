@@ -209,7 +209,7 @@ class WindowsPlatform extends PlatformTarget
 						{
 							var command = #if lime "lime" #else "hxp" #end;
 
-							Log.warn("You must define HL_PATH to copy HashLink dependencies, please run '" + command + " setup hl' first");
+							Log.error("You must define HL_PATH to copy HashLink dependencies, please run '" + command + " setup hl' first");
 						}
 						else
 						{

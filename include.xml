@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+  <?xml version="1.0" encoding="utf-8"?>
 <extension>
 
 	<log error="Lime ${lime} is not compatible with Haxe ${haxe} (version 3.2.0 or higher is required)" if="${haxe < 3.2.0}" />
@@ -101,7 +101,7 @@
 		<define name="MACOSX_DEPLOYMENT_TARGET" value="10.9" if="mac" unless="MACOSX_DEPLOYMENT_TARGET" />
 		<setenv name="MACOSX_DEPLOYMENT_TARGET" value="${MACOSX_DEPLOYMENT_TARGET}" if="mac" />
 
-		<architecture name="armv7" if="android" />
+		<!--<architecture name="armv7" if="android" />-->
 
 		<section if="emscripten">
 
