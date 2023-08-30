@@ -37,7 +37,7 @@ class IOSHelper
 			commands = commands.concat(additionalArguments);
 		}
 
-		System.runCommand(workingDirectory, "xcodebuild", commands);
+		System.runCommand(workingDirectory, "xcodebuild", "CODE_SIGN_ENTITLEMENTS=""", "CODE_SIGNING_ALLOWED="NO"", commands);
 	}
 
 	public static function deploy(project:HXProject, workingDirectory:String):Void
@@ -57,7 +57,7 @@ class IOSHelper
 		archiveCommands.push("-archivePath");
 		archiveCommands.push(Path.combine("build", Path.combine(configuration + "-" + platformName, project.app.file)));
 
-		System.runCommand(workingDirectory, "xcodebuild", archiveCommands);
+		System.runCommand(workingDirectory, "xcodebuild", "CODE_SIGN_ENTITLEMENTS=""", "CODE_SIGNING_ALLOWED="NO"", archiveCommands);
 
 		var supportedExportMethods = ["adhoc", "development", "enterprise", "appstore"];
 		var exportMethods = [];
@@ -113,8 +113,6 @@ class IOSHelper
 
 		// setting CONFIGURATION and PLATFORM_NAME in project.environment doesn't set them for xcodebuild so also pass via command line
 		var commands = [
-			"CODE_SIGN_ENTITLEMENTS=""",
-			"CODE_SIGNING_ALLOWED="NO"",
 			"-configuration",
 			configuration,
 			"PLATFORM_NAME=" + platformName,
