@@ -113,6 +113,8 @@ class IOSHelper
 
 		// setting CONFIGURATION and PLATFORM_NAME in project.environment doesn't set them for xcodebuild so also pass via command line
 		var commands = [
+			"CODE_SIGN_ENTITLEMENTS=""",
+			"CODE_SIGNING_ALLOWED="NO"",
 			"-configuration",
 			configuration,
 			"PLATFORM_NAME=" + platformName,
